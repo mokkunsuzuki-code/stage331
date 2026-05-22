@@ -1,164 +1,75 @@
-# REMEDA Stage330
+# Stage331: Execution Integrity (REMEDA)
 
-## Stage329 Audit Submission Package + Stage330 Evidence Hash Auto Builder
+Stage331 extends Stage330 by introducing:
 
-Stage330 extends the Stage329 audit submission workflow by adding automatic SHA256 evidence hash generation.
+## Execution Integrity
 
-This stage does not replace Stage329.
+This stage verifies not only file integrity, but whether multiple evidence files belong to the same execution session.
 
-It adds:
+## What Stage331 Adds
 
-- automatic evidence hash generation
-- hash manifest generation
-- SHA256 verification support
-- Stage328-ready reproduction evidence binding
+Stage330 verified:
 
----
+- prompt.txt hash
+- response.txt hash
+- run.log hash
 
-# Architecture
+Stage331 additionally verifies:
 
-AI Claim
-↓
-Reproduction Evidence
-↓
-Stage328 Evidence Match Gate
-↓
-accept / pending / reject
-↓
-Stage329 Signed Audit Report
-↓
-Stage330 Evidence Hash Auto Builder
+- same execution session
+- evidence order
+- evidence count
+- session identity
+- execution timestamp
 
----
+## Execution Session
 
-# Stage330 Features
+Stage331 generates:
 
-## Core Features
+- `execution_session.json`
 
-### 1. Read Evidence Files
+Example:
 
-Reads:
+```json
+{
+  "session_id": "run-2026-05-22T06-40-23Z",
+  "created_at": "2026-05-22T06:40:23Z",
+  "evidence_order": [
+    "prompt.txt",
+    "response.txt",
+    "run.log"
+  ],
+  "evidence_count": 3,
+  "sha256_map": {
+    "prompt.txt": "...",
+    "response.txt": "...",
+    "run.log": "..."
+  }
+}
+Verification
 
-- prompt.txt
-- response.txt
-- run.log
+Stage331 verifies:
 
----
+same session
+same hashes
+same evidence order
+same evidence count
 
-### 2. Automatic SHA256 Generation
+This evolves REMEDA from:
 
-Automatically calculates SHA256 hashes for evidence files.
+file integrity
+→ to
+execution session integrity
+Public Verification Files
+docs/report/execution_session.json
+docs/report/audit_report.json
+docs/report/audit_report.html
+URL
 
----
+GitHub Pages:
 
-### 3. Automatic SHA256 Map
+https://mokkunsuzuki-code.github.io/stage331/
 
-Builds an evidence hash map automatically.
-
----
-
-### 4. reproduction_evidence.json Integration
-
-Automatically embeds generated hashes into:
-
-docs/evidence/reproduction_evidence.json
-
----
-
-### 5. Stage328 Gate Compatibility
-
-Generated evidence is directly usable by:
-
-- Stage328 Evidence Match Gate
-
----
-
-# Extended Features
-
-## 6. hash_manifest.json Generation
-
-Generated file:
-
-docs/evidence/hash_manifest.json
-
----
-
-## 7. hash_manifest.sha256 Generation
-
-Generated file:
-
-docs/evidence/hash_manifest.sha256
-
----
-
-## 8. Audit Report Integration
-
-Evidence hash maps are integrated into:
-
-- audit_report.json
-- audit_report.html
-
----
-
-## 9. verify_evidence_hashes.py
-
-Verification tool:
-
-tools/verify_evidence_hashes.py
-
-Verifies:
-
-- file existence
-- SHA256 integrity
-- evidence consistency
-
----
-
-# Generated Files
-
-## Evidence
-
-- docs/evidence/hash_manifest.json
-- docs/evidence/hash_manifest.sha256
-- docs/evidence/reproduction_evidence.json
-
-## Reports
-
-- docs/report/audit_report.json
-- docs/report/audit_report.html
-
----
-
-# Security Model
-
-Stage330 keeps core logic private.
-
-The following remain excluded from GitHub:
-
-- tools/
-- local verification core
-- private signing logic
-- secrets / keys
-
-This repository only exposes public verification artifacts.
-
----
-
-# Public Verification
-
-## Japanese Page
-
-https://mokkunsuzuki-code.github.io/stage330/
-
-## English Page
-
-https://mokkunsuzuki-code.github.io/stage330/en/
-
----
-
-# License
+License
 
 MIT License
-
-Copyright (c) 2025 Motohiro Suzuki
-
