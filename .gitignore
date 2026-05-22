@@ -1,0 +1,15 @@
+# private core
+core/
+tools/
+app.py
+*.pyc
+__pycache__/
+.env
+*.key
+*.pem
+*.p12
+*.pfx
+
+# local data
+data/
+private/

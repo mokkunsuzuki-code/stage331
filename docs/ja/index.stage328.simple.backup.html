@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>REMEDA Stage328 - QSP Evidence Match Gate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 20px; line-height: 1.7; color: #111827; }
+    h1 { font-size: 2.2rem; }
+    h2 { margin-top: 2.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: .3rem; }
+    .card { border: 1px solid #e5e7eb; border-radius: 14px; padding: 20px; margin: 16px 0; background: #f9fafb; }
+    .ok { color: #047857; font-weight: 700; }
+    code, pre { background: #111827; color: #f9fafb; border-radius: 10px; padding: 12px; display: block; overflow-x: auto; }
+    .pill { display:inline-block; padding:6px 10px; border-radius:999px; background:#ecfdf5; color:#047857; font-weight:700; }
+  </style>
+</head>
+<body>
+  <h1>REMEDA Stage328</h1>
+  <p class="pill">QSP Evidence Match Gate</p>
+
+  <div class="card">
+    <h2>概要</h2>
+    <p>
+      Stage328は、AIが指摘した脆弱性の主張と、実際の再現証拠が
+      <strong>同じ対象・同じ証拠・改ざんされていない証拠</strong>
+      として結び付いているかを判定するGateです。
+    </p>
+    <p>
+      これは「脆弱性を再現するシステム」ではありません。<br>
+      <strong>再現結果を信頼できる証拠として扱えるかを判定するエンジン</strong>です。
+    </p>
+  </div>
+
+  <h2>判定モデル</h2>
+  <pre>AI Claim
+↓
+Reproduction Evidence
+↓
+QSP Evidence Match Gate
+↓
+accept / pending / reject</pre>
+
+  <h2>Stage328で確認するもの</h2>
+
+  <div class="card">
+    <h3>same_target</h3>
+    <p>AIの指摘対象と、再現証拠の対象が同じかを確認します。</p>
+  </div>
+
+  <div class="card">
+    <h3>evidence_files_present</h3>
+    <p>再現証拠ファイルが実際に存在するかを確認します。</p>
+  </div>
+
+  <div class="card">
+    <h3>sha256_bound</h3>
+    <p>証拠ファイルのSHA256が一致し、改ざんされていないかを確認します。</p>
+  </div>
+
+  <div class="card">
+    <h3>signature_present</h3>
+    <p>証拠ファイルに署名が存在するかを確認します。</p>
+  </div>
+
+  <h2>判定結果</h2>
+  <div class="card">
+    <p class="ok">accept</p>
+    <p>対象・証拠ファイル・SHA256・署名がすべて揃っている状態。</p>
+
+    <p><strong>pending</strong></p>
+    <p>対象と証拠はあるが、SHA256や署名が不足している状態。</p>
+
+    <p><strong>reject</strong></p>
+    <p>対象が違う、または証拠が不足している状態。</p>
+  </div>
+
+  <h2>Stage327からStage328への進化</h2>
+  <pre>Stage327:
+Reproduction Evidence Schema
+再現証拠を標準構造にする
+
+Stage328:
+QSP Evidence Match Gate
+AI Claim と Reproduction Evidence が一致するか判定する</pre>
+
+  <h2>今回のデモ判定</h2>
+  <pre>{
+  "same_target": true,
+  "evidence_files_present": true,
+  "sha256_bound": true,
+  "signature_present": true,
+  "decision": "accept"
+}</pre>
+
+  <h2>核心</h2>
+  <div class="card">
+    <p>
+      Stage328の価値は、AIの出力そのものを信じることではありません。
+    </p>
+    <p>
+      <strong>
+        AI Claim と Reproduction Evidence が、本当に同じ対象に結び付いているかを検証することです。
+      </strong>
+    </p>
+  </div>
+
+  <h2>公開ファイル</h2>
+  <ul>
+    <li><a href="../">英語トップページ</a></li>
+    <li><a href="../proof/demo-ai-vulnerability.html">Proof Viewer</a></li>
+    <li><a href="../report/report.html">Audit Report</a></li>
+    <li><a href="../report/report.json">Report JSON</a></li>
+    <li><a href="../history/history.json">Audit History JSON</a></li>
+    <li><a href="../verify/third-party-verify.txt">Third-Party Verification Guide</a></li>
+  </ul>
+
+  <h2>注意</h2>
+  <p>
+    JSONキーは翻訳してはいけません。
+    <code>same_target</code>
+    <code>evidence_files_present</code>
+    <code>sha256_bound</code>
+    <code>signature_present</code>
+    は固定です。
+  </p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "stage": 325,
+  "title": "Verifiable Audit Report Export",
+  "issuer": "Motohiro Suzuki",
+  "created_at": "2026-05-07T23:16:54.641162+00:00",
+  "formats": [
+    "JSON",
+    "HTML",
+    "PDF"
+  ],
+  "status": "submission_ready",
+  "summary": "This package exports a verifiable audit report in JSON, HTML, and PDF formats.",
+  "verification": {
+    "history": "proofs/history.json",
+    "signature": "proofs/history.json.sig",
+    "public_key": "proofs/public-key.asc",
+    "command": "gpg --import proofs/public-key.asc && gpg --verify proofs/history.json.sig proofs/history.json"
+  },
+  "what_this_proves": [
+    "The audit report exists.",
+    "The audit history has not been tampered with.",
+    "The report includes reproducible verification instructions.",
+    "The package is ready for external submission."
+  ],
+  "stage_evolution": {
+    "stage324": "Multi-signature-ready public verification",
+    "stage325": "Verifiable audit report export package"
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stage325 Audit Report</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; line-height: 1.6; }
+.box { border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0; }
+pre { background: #f6f6f6; padding: 12px; border-radius: 8px; overflow-x: auto; }
+</style>
+</head>
+<body>
+<h1>Stage325: Verifiable Audit Report Export</h1>
+<p><b>Submit the report. Let others verify the proof.</b></p>
+
+<div class="box">
+<h2>Summary</h2>
+<p>This package exports a verifiable audit report in JSON, HTML, and PDF formats.</p>
+</div>
+
+<div class="box">
+<h2>Verification Command</h2>
+<pre>gpg --import proofs/public-key.asc && gpg --verify proofs/history.json.sig proofs/history.json</pre>
+</div>
+
+<div class="box">
+<h2>Proof Files</h2>
+<ul>
+<li><a href="../proofs/history.json">history.json</a></li>
+<li><a href="../proofs/history.json.sig">history.json.sig</a></li>
+<li><a href="../proofs/public-key.asc">public-key.asc</a></li>
+</ul>
+</div>
+
+<div class="box">
+<h2>What This Proves</h2>
+<ul>
+<li>The audit report exists.</li>
+<li>The audit history has not been tampered with.</li>
+<li>The report includes reproducible verification instructions.</li>
+<li>The package is ready for external submission.</li>
+</ul>
+</div>
+</body>
+</html>

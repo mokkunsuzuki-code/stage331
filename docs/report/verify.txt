@@ -1,0 +1,9 @@
+Stage325 Verification
+
+Import public key:
+gpg --import proofs/public-key.asc
+
+Verify signed history:
+gpg --verify proofs/history.json.sig proofs/history.json
+
+If verification succeeds, the audit history has not been changed since signing.

@@ -1,0 +1,45 @@
+{
+  "schema": "remeda.vulnerability_evidence_intake.v1",
+  "stage": 326,
+  "ai_claim": {
+    "claim_id": "AI-CLAIM-DEMO-001",
+    "source": "demo-ai-security-assistant",
+    "target": {
+      "repository": "demo/repository",
+      "commit": "abc123demo",
+      "file": "src/demo.py",
+      "line_range": "10-20"
+    },
+    "vulnerability_type": "demo-unsafe-pattern",
+    "claim_summary": "AI reported a potential unsafe pattern in a demo file.",
+    "risk_level": "medium",
+    "created_at": "2026-05-08T00:00:00Z"
+  },
+  "reproduction_result": {
+    "reproduction_id": "REPRO-DEMO-001",
+    "environment": "sandbox",
+    "target": {
+      "repository": "demo/repository",
+      "commit": "abc123demo",
+      "file": "src/demo.py",
+      "line_range": "10-20"
+    },
+    "result": "reproduced",
+    "method_summary": "Safe demo reproduction confirmed same target binding.",
+    "created_at": "2026-05-08T00:05:00Z"
+  },
+  "evidence_files": [
+    {
+      "name": "demo-log.txt",
+      "type": "log",
+      "sha256": "demo-placeholder-sha256",
+      "public": false
+    }
+  ],
+  "qsp_decision": {
+    "same_target": true,
+    "decision": "accept",
+    "reason": "AI claim and reproduction refer to the same target.",
+    "fail_closed": true
+  }
+}

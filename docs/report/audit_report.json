@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-05-19T03:34:13.676172+00:00",
+  "decision_layer": "Stage328 Evidence Match Gate Ready",
+  "evidence_hash_map": {
+    "samples/prompt.txt": "b2db18efc775dccfc4e369f44ea3f00ad6cf805a3306b8024ba7b33e972ae75c",
+    "samples/response.txt": "b1f460763b3d8dff3e84ba8173b8d77548bae7121ed0dd6f17aefcece5973db9",
+    "samples/run.log": "83b7955ff111869578eeaf3b67f269009602030d4c70009797b7c2d18dd107ba"
+  },
+  "hash_manifest_sha256": "15d59cf46f89a8cc78eeb4f3f97211c2dcb502acb7b1b60b9d10a0e49257a749",
+  "stage": 330,
+  "title": "Stage330 Evidence Hash Auto Builder Audit Report"
+}

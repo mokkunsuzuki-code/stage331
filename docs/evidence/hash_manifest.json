@@ -1,0 +1,11 @@
+{
+  "algorithm": "SHA256",
+  "created_at": "2026-05-19T03:34:13.676172+00:00",
+  "evidence_hash_map": {
+    "samples/prompt.txt": "b2db18efc775dccfc4e369f44ea3f00ad6cf805a3306b8024ba7b33e972ae75c",
+    "samples/response.txt": "b1f460763b3d8dff3e84ba8173b8d77548bae7121ed0dd6f17aefcece5973db9",
+    "samples/run.log": "83b7955ff111869578eeaf3b67f269009602030d4c70009797b7c2d18dd107ba"
+  },
+  "name": "Evidence Hash Auto Builder",
+  "stage": 330
+}

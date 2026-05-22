@@ -1,0 +1,18 @@
+{
+  "created_at": "2026-05-22T06:40:23Z",
+  "evidence_count": 3,
+  "evidence_order": [
+    "prompt.txt",
+    "response.txt",
+    "run.log"
+  ],
+  "meaning": "This file binds evidence files into one execution session.",
+  "session_id": "run-2026-05-22T06-40-23Z",
+  "sha256_map": {
+    "prompt.txt": "b2db18efc775dccfc4e369f44ea3f00ad6cf805a3306b8024ba7b33e972ae75c",
+    "response.txt": "b1f460763b3d8dff3e84ba8173b8d77548bae7121ed0dd6f17aefcece5973db9",
+    "run.log": "83b7955ff111869578eeaf3b67f269009602030d4c70009797b7c2d18dd107ba"
+  },
+  "stage": 331,
+  "type": "execution_session"
+}

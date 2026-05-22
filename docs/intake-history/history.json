@@ -1,0 +1,32 @@
+[
+  {
+    "intake_id": "stage326-intake-demo-001",
+    "timestamp": "2026-05-08T00:00:00+09:00",
+    "stage": 326,
+    "type": "ai_vulnerability_intake",
+    "ai_claim": {
+      "repository": "demo/repository",
+      "commit": "abc123demo",
+      "file": "src/auth.py",
+      "line_range": "40-55",
+      "file_sha256": "demo-file-sha256",
+      "vulnerability_type": "hardcoded-secret",
+      "risk_level": "high"
+    },
+    "reproduction_result": {
+      "repository": "demo/repository",
+      "commit": "abc123demo",
+      "file": "src/auth.py",
+      "line_range": "40-55",
+      "file_sha256": "demo-file-sha256",
+      "result": "reproduced"
+    },
+    "qsp_decision": {
+      "same_target": true,
+      "decision": "accept",
+      "fail_closed": true
+    },
+    "previous_hash": "GENESIS",
+    "current_hash": "stage326-demo-current-hash-placeholder"
+  }
+]

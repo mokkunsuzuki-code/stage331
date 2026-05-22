@@ -1,0 +1,32 @@
+# Stage326 Third-Party Verification
+
+This package allows third parties to verify the Stage326 AI vulnerability intake history.
+
+## Files
+
+- intake-history/history.json
+- intake-history/history.json.sha256
+- intake-history/history.json.asc
+- keys/public-key.asc
+
+## Verify SHA256
+
+shasum -a 256 intake-history/history.json
+
+Compare the result with:
+
+intake-history/history.json.sha256
+
+## Verify GPG Signature
+
+gpg --import keys/public-key.asc
+gpg --verify intake-history/history.json.asc intake-history/history.json
+
+## Meaning
+
+If verification succeeds:
+
+- the intake history exists
+- the history file was not modified after signing
+- the signature matches the published public key
+- the AI claim, reproduction result, SHA256 binding, and QSP decision can be independently inspected
