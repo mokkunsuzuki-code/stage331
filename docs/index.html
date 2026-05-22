@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="google" content="notranslate">
-  <title>REMEDA Stage330 - Stage328 Evidence Match Gate + Audit Submission</title>
+  <title>REMEDA Stage331 - Execution Integrity + Evidence Hash Auto Builder</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #f6f8fa; color: #24292f; }
     header { background: #0d1117; color: white; padding: 44px 32px; }
@@ -26,8 +26,8 @@
 </head>
 <body>
 <header>
-  <h1>REMEDA Stage330</h1>
-  <p>Stage329 Audit Submission Package + Stage330 Evidence Hash Auto Builder</p>
+  <h1>REMEDA Stage331</h1>
+  <p>Stage329 Audit Submission Package + Stage330 Evidence Hash Auto Builder + Stage331 Execution Integrity</p>
   <span class="badge">Stage329の監査提出機能を継承し、SHA256自動生成を追加</span>
 </header>
 
@@ -218,6 +218,42 @@ Stage329 Audit Submission Package
     <li><a href="evidence/hash_manifest.json">docs/evidence/hash_manifest.json</a></li>
     <li><a href="evidence/hash_manifest.sha256">docs/evidence/hash_manifest.sha256</a></li>
     <li><a href="evidence/reproduction_evidence.json">docs/evidence/reproduction_evidence.json</a></li>
+</ul>
+
+<h3>Stage331 Execution Integrity</h3>
+
+<p>
+Stage331 extends Stage330 by binding evidence files into a single execution session.
+</p>
+
+<pre>
+prompt.txt
+response.txt
+run.log
+↓
+Execution Session Binding
+↓
+session_id
+created_at
+evidence_order
+evidence_count
+sha256_map
+↓
+execution_session.json
+↓
+Execution Integrity Verification
+</pre>
+
+<p>
+Stage331 verifies not only file integrity, but whether the evidence files belong to the same execution session.
+</p>
+
+<ul>
+  <li><a href="report/execution_session.json">docs/report/execution_session.json</a></li>
+</ul>
+
+</section>
+
     <li><a href="report/audit_report.json">docs/report/audit_report.json</a></li>
     <li><a href="report/audit_report.html">docs/report/audit_report.html</a></li>
   </ul>
