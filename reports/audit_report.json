@@ -1,0 +1,37 @@
+{
+  "created_at": "2026-05-13T05:43:53.750397+00:00",
+  "evidence_hash_sha256": "c226b5c420a17e08902b83bfc17dd79c44277945d00a13ab749a99535ed8d0a7",
+  "flow": [
+    "AI Claim",
+    "Reproduction Evidence",
+    "QSP Decision",
+    "Signed Audit Report"
+  ],
+  "license": "MIT",
+  "name": "Stage329 Audit Artifact Package",
+  "purpose": "Convert Stage328 verification decisions into submit-ready audit evidence.",
+  "source_decision_file": "stage328_decision.json",
+  "stage": 329,
+  "stage328_decision": {
+    "checks": {
+      "evidence_files_present": true,
+      "same_target": true,
+      "sha256_bound": true,
+      "signature_present": true
+    },
+    "decision": "accept",
+    "engine": "QSP Evidence Match Gate",
+    "note": "This gate verifies evidence binding. It does not reproduce vulnerabilities.",
+    "purpose": "AI Claim vs Reproduction Evidence trust decision",
+    "stage": 328
+  },
+  "submission_status": "ready_for_third_party_review",
+  "verification_trace": [
+    "Loaded stage328_decision.json",
+    "Calculated SHA256 evidence hash",
+    "Generated audit_report.json",
+    "Generated audit_report.html",
+    "Generated verify.txt",
+    "Prepared signed audit report target"
+  ]
+}

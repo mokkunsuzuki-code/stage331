@@ -1,0 +1,12 @@
+{
+  "reproduction_id": "reproduction-stage328-demo",
+  "target": "demo-ai-vulnerability",
+  "environment": "isolated-safe-local",
+  "evidence_files": [
+    {
+      "path": "samples/reproduction.log",
+      "sha256": "1703d0f472f29f85fca5757e1a52ff8758f1c26dd35d0a9572a996dfb07342eb"
+    }
+  ],
+  "signature": "samples/reproduction.log.asc"
+}

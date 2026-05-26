@@ -1,0 +1,13 @@
+{
+  "stage": 328,
+  "engine": "QSP Evidence Match Gate",
+  "purpose": "AI Claim vs Reproduction Evidence trust decision",
+  "checks": {
+    "same_target": true,
+    "evidence_files_present": true,
+    "sha256_bound": true,
+    "signature_present": true
+  },
+  "decision": "accept",
+  "note": "This gate verifies evidence binding. It does not reproduce vulnerabilities."
+}

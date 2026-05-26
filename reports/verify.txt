@@ -1,0 +1,31 @@
+Stage329 Third-party Verification
+
+Source decision:
+stage328_decision.json
+
+Created at:
+2026-05-13T05:43:53.750397+00:00
+
+Evidence SHA256:
+c226b5c420a17e08902b83bfc17dd79c44277945d00a13ab749a99535ed8d0a7
+
+Audit Report SHA256:
+89ee47882d5b8d359fcac6d49b9b97838e2da3ff6af9555f240f1c11a6ee5bb1
+
+Verify hash:
+shasum -a 256 docs/reports/audit_report.json
+
+Verify signature:
+gpg --verify docs/reports/audit_report.json.asc docs/reports/audit_report.json
+
+Meaning:
+This audit package was generated from the Stage328 verification decision.
+
+Flow:
+AI Claim
+↓
+Reproduction Evidence
+↓
+QSP Decision
+↓
+Signed Audit Report

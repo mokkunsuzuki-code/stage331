@@ -1,0 +1,4 @@
+Safe reproduction result:
+The reported AI claim target was checked in an isolated environment.
+No exploit code is included.
+Result: behavior observed safely.

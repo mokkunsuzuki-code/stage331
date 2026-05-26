@@ -387,3 +387,20 @@ generateStage328();
 </script>
 </body>
 </html>
+
+<section>
+  <h2>Stage332: Signed Execution Session</h2>
+  <p>
+    Stage332 adds cryptographic signatures to the execution session.
+    The audit target is <code>execution_session.json</code>.
+  </p>
+  <ul>
+    <li><a href="./execution/execution_session.json">execution_session.json</a></li>
+    <li><a href="./execution/execution_session.json.sig">GPG signature</a></li>
+    <li><a href="./execution/execution_session.json.bundle">Sigstore bundle</a></li>
+    <li><a href="./execution/public-key.asc">Public key</a></li>
+  </ul>
+  <p>
+    Meaning: this proves who generated the execution session and turns execution evidence into signed audit evidence.
+  </p>
+</section>

@@ -1,0 +1,17 @@
+{
+  "vulnerability_type": "prompt-injection",
+  "target": "model-output",
+  "ai_claim_id": "claim-001",
+  "reproduction_id": "repro-001",
+  "result": "reproduced",
+  "evidence_files": [
+    "prompt.txt",
+    "response.txt",
+    "run.log"
+  ],
+  "sha256": {
+    "prompt.txt": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "response.txt": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "run.log": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  }
+}

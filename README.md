@@ -1,75 +1,57 @@
-# Stage331: Execution Integrity (REMEDA)
+# Stage332: Signed Execution Session
 
-Stage331 extends Stage330 by introducing:
+Stage332 adds cryptographic signatures to the execution session.
 
-## Execution Integrity
+## What This Stage Adds
 
-This stage verifies not only file integrity, but whether multiple evidence files belong to the same execution session.
+Stage331 produced an execution session.
 
-## What Stage331 Adds
+Stage332 signs that session with:
 
-Stage330 verified:
+- GPG
+- Sigstore
 
-- prompt.txt hash
-- response.txt hash
-- run.log hash
+## Audit Target
 
-Stage331 additionally verifies:
+```text
+docs/execution/execution_session.json
+Public Evidence Files
+docs/execution/execution_session.json
+docs/execution/execution_session.json.sig
+docs/execution/execution_session.json.bundle
+docs/execution/public-key.asc
+Why This Matters
 
-- same execution session
-- evidence order
-- evidence count
-- session identity
-- execution timestamp
+Stage332 proves:
 
-## Execution Session
+what execution session was generated
+who generated it
+whether the session was changed later
+whether the evidence can be independently verified
 
-Stage331 generates:
+This keeps QSP / VEP on the audit, evidence, verification, and transparency path.
 
-- `execution_session.json`
+Verify GPG Signature
+gpg --import docs/execution/public-key.asc
 
-Example:
+gpg --verify \
+  docs/execution/execution_session.json.sig \
+  docs/execution/execution_session.json
+Verify Sigstore Bundle
+cosign verify-blob \
+  --bundle docs/execution/execution_session.json.bundle \
+  docs/execution/execution_session.json
+Important
 
-```json
-{
-  "session_id": "run-2026-05-22T06-40-23Z",
-  "created_at": "2026-05-22T06:40:23Z",
-  "evidence_order": [
-    "prompt.txt",
-    "response.txt",
-    "run.log"
-  ],
-  "evidence_count": 3,
-  "sha256_map": {
-    "prompt.txt": "...",
-    "response.txt": "...",
-    "run.log": "..."
-  }
-}
-Verification
+The local core is intentionally excluded from GitHub.
 
-Stage331 verifies:
+core/
+local/
 
-same session
-same hashes
-same evidence order
-same evidence count
-
-This evolves REMEDA from:
-
-file integrity
-→ to
-execution session integrity
-Public Verification Files
-docs/report/execution_session.json
-docs/report/audit_report.json
-docs/report/audit_report.html
-URL
-
-GitHub Pages:
-
-https://mokkunsuzuki-code.github.io/stage331/
+Only public audit evidence is published.
 
 License
 
 MIT License
+
+Copyright (c) 2025 Motohiro Suzuki

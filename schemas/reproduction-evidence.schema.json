@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "REMEDA Stage327 Reproduction Evidence Schema",
+  "type": "object",
+  "required": [
+    "vulnerability_type",
+    "target",
+    "ai_claim_id",
+    "reproduction_id",
+    "result",
+    "evidence_files",
+    "sha256"
+  ],
+  "properties": {
+    "vulnerability_type": {
+      "type": "string",
+      "enum": [
+        "prompt-injection",
+        "sensitive-information-disclosure",
+        "supply-chain",
+        "insecure-output-handling",
+        "excessive-agency",
+        "model-denial-of-service",
+        "training-data-poisoning",
+        "model-theft",
+        "overreliance",
+        "misinformation",
+        "other"
+      ]
+    },
+    "target": {
+      "type": "string",
+      "enum": [
+        "model-output",
+        "repository",
+        "commit",
+        "file",
+        "line-range",
+        "api-response",
+        "workflow",
+        "artifact",
+        "other"
+      ]
+    },
+    "ai_claim_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reproduction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "reproduced",
+        "not-reproduced",
+        "partial",
+        "inconclusive"
+      ]
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "sha256": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-fA-F0-9]{64}$"
+      }
+    }
+  }
+}

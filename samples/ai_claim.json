@@ -1,0 +1,7 @@
+{
+  "claim_id": "ai-claim-stage328-demo",
+  "target": "demo-ai-vulnerability",
+  "claim_type": "ai-security-finding",
+  "summary": "AI reported a security-relevant behavior for the target.",
+  "safe_mode": true
+}
